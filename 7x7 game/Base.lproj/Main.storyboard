@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -83,16 +84,35 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mB5-LL-kqb">
                                         <rect key="frame" x="0.0" y="301.5" width="375" height="301.5"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0f6-mX-AJf">
-                                                <rect key="frame" x="164" y="136" width="46" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Button"/>
-                                                <connections>
-                                                    <action selector="ButtonPressed:" destination="qip-Np-fdH" eventType="touchUpInside" id="xl7-87-Xij"/>
-                                                </connections>
-                                            </button>
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="N0V-e2-V72">
+                                                <rect key="frame" x="8" y="8" width="359" height="285.5"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="QyG-kc-dPy">
+                                                    <size key="itemSize" width="50" height="50"/>
+                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                </collectionViewFlowLayout>
+                                                <cells>
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Square" id="mKl-nZ-YYq">
+                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                        </view>
+                                                        <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </collectionViewCell>
+                                                </cells>
+                                            </collectionView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailingMargin" secondItem="N0V-e2-V72" secondAttribute="trailing" id="D0P-Ec-jxt"/>
+                                            <constraint firstItem="N0V-e2-V72" firstAttribute="top" secondItem="mB5-LL-kqb" secondAttribute="topMargin" id="LqU-ON-hhT"/>
+                                            <constraint firstItem="N0V-e2-V72" firstAttribute="leading" secondItem="mB5-LL-kqb" secondAttribute="leadingMargin" id="Oop-De-SR6"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="N0V-e2-V72" secondAttribute="bottom" id="pFY-QU-IBU"/>
+                                        </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
@@ -120,6 +140,7 @@
                         <outlet property="ScoreLabel" destination="k3R-qs-0y4" id="8jl-7c-bRU"/>
                         <outlet property="UpNextLabel" destination="7Gg-cO-zU7" id="L9H-c5-Eaq"/>
                         <outlet property="UpperStackView" destination="8jf-yo-Dgy" id="ONM-qI-c3K"/>
+                        <outlet property="collectionView" destination="N0V-e2-V72" id="LqK-lZ-pl6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rPM-TP-mb8" userLabel="First Responder" sceneMemberID="firstResponder"/>

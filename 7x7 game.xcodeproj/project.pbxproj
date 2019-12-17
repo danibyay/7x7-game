@@ -15,6 +15,9 @@
 		233A92AE239D62680046550C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 233A92AC239D62680046550C /* LaunchScreen.storyboard */; };
 		233A92B9239D62680046550C /* _x7_gameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233A92B8239D62680046550C /* _x7_gameTests.swift */; };
 		233A92C4239D62680046550C /* _x7_gameUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233A92C3239D62680046550C /* _x7_gameUITests.swift */; };
+		23BAB05023A9840300F5335D /* GridModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BAB04F23A9840300F5335D /* GridModel.swift */; };
+		23BAB05223A9842400F5335D /* Square.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BAB05123A9842400F5335D /* Square.swift */; };
+		23BAB05423A9845600F5335D /* SquareCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BAB05323A9845600F5335D /* SquareCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		233A92BF239D62680046550C /* 7x7 gameUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "7x7 gameUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		233A92C3239D62680046550C /* _x7_gameUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _x7_gameUITests.swift; sourceTree = "<group>"; };
 		233A92C5239D62680046550C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		23BAB04F23A9840300F5335D /* GridModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridModel.swift; sourceTree = "<group>"; };
+		23BAB05123A9842400F5335D /* Square.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Square.swift; sourceTree = "<group>"; };
+		23BAB05323A9845600F5335D /* SquareCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,11 +107,14 @@
 			children = (
 				233A92A3239D62680046550C /* AppDelegate.swift */,
 				233A92A5239D62680046550C /* ViewController.swift */,
-				233A92A7239D62680046550C /* Main.storyboard */,
-				233A92AA239D62680046550C /* Assets.xcassets */,
-				233A92AC239D62680046550C /* LaunchScreen.storyboard */,
-				233A92AF239D62680046550C /* Info.plist */,
 				2326793D23A80FED001D58AD /* GameViewController.swift */,
+				23BAB04F23A9840300F5335D /* GridModel.swift */,
+				23BAB05123A9842400F5335D /* Square.swift */,
+				23BAB05323A9845600F5335D /* SquareCollectionViewCell.swift */,
+				233A92A7239D62680046550C /* Main.storyboard */,
+				233A92AC239D62680046550C /* LaunchScreen.storyboard */,
+				233A92AA239D62680046550C /* Assets.xcassets */,
+				233A92AF239D62680046550C /* Info.plist */,
 			);
 			path = "7x7 game";
 			sourceTree = "<group>";
@@ -262,7 +271,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23BAB05223A9842400F5335D /* Square.swift in Sources */,
+				23BAB05023A9840300F5335D /* GridModel.swift in Sources */,
 				233A92A6239D62680046550C /* ViewController.swift in Sources */,
+				23BAB05423A9845600F5335D /* SquareCollectionViewCell.swift in Sources */,
 				2326793E23A80FED001D58AD /* GameViewController.swift in Sources */,
 				233A92A4239D62680046550C /* AppDelegate.swift in Sources */,
 			);

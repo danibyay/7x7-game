@@ -8,17 +8,23 @@
 
 import UIKit
 
-class GameViewController: UIViewController {
+class GameViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
     @IBOutlet weak var UpperStackView: UIStackView!
     @IBOutlet weak var MainView: UIView!
     @IBOutlet weak var UpNextLabel: UILabel!
     @IBOutlet weak var ScoreLabel: UILabel!
+    @IBOutlet weak var collectionView: UICollectionView!
+    
     var score = 0;
+    var model = GridModel()
+    var squaresArray = [Square]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        squaresArray = model.getSquares()
+        collectionView.delegate = self
+        collectionView.dataSource = self
         // Do any additional setup after loading the view.
     }
 
@@ -27,23 +33,29 @@ class GameViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func ButtonPressed(_ sender: Any) {
-        score += 1
-        updateScore()
-    }
-    
     func updateScore() {
         ScoreLabel.text = "Score: \(String(score))"
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // MARK: - UICollectionView Protocol Methods
+    func collectionView(_ collectionView: UICollectionView,
+                        numberOfItemsInSection section: Int) -> Int {
+        
+        return squaresArray.count
     }
-    */
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell =
+            collectionView.dequeueReusableCell(withReuseIdentifier: "Square", for: indexPath)
+        cell.contentView.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 0.0, alpha: 1.0)
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        didSelectItemAt indexPath: IndexPath) {
+    }
+    
+
 
 }
