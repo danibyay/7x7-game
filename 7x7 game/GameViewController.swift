@@ -48,12 +48,34 @@ class GameViewController: UIViewController, UICollectionViewDelegate, UICollecti
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell =
             collectionView.dequeueReusableCell(withReuseIdentifier: "Square", for: indexPath)
-        cell.contentView.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 0.0, alpha: 1.0)
+        setCellColor(cell: cell, index: indexPath)
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         didSelectItemAt indexPath: IndexPath) {
+    }
+    
+    // MARK: - Other
+    
+    func setCellColor(cell: UICollectionViewCell, index: IndexPath) {
+        switch squaresArray[index.item].colorCode {
+            case 0:
+                cell.contentView.backgroundColor = UIColor.gameNoColor()
+            case 1:
+                cell.contentView.backgroundColor = UIColor.gameColor1()
+            case 2:
+                cell.contentView.backgroundColor = UIColor.gameColor2()
+            case 3:
+                cell.contentView.backgroundColor = UIColor.gameColor3()
+            case 4:
+                cell.contentView.backgroundColor = UIColor.gameColor4()
+            case 5:
+                cell.contentView.backgroundColor = UIColor.gameColor5()
+            default:
+                cell.contentView.backgroundColor = UIColor.gameNoColor()
+        
+        }
     }
     
 

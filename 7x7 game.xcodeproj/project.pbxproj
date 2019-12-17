@@ -18,6 +18,7 @@
 		23BAB05023A9840300F5335D /* GridModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BAB04F23A9840300F5335D /* GridModel.swift */; };
 		23BAB05223A9842400F5335D /* Square.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BAB05123A9842400F5335D /* Square.swift */; };
 		23BAB05423A9845600F5335D /* SquareCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BAB05323A9845600F5335D /* SquareCollectionViewCell.swift */; };
+		23BAB05623A98F9500F5335D /* GameColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BAB05523A98F9500F5335D /* GameColors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		23BAB04F23A9840300F5335D /* GridModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridModel.swift; sourceTree = "<group>"; };
 		23BAB05123A9842400F5335D /* Square.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Square.swift; sourceTree = "<group>"; };
 		23BAB05323A9845600F5335D /* SquareCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareCollectionViewCell.swift; sourceTree = "<group>"; };
+		23BAB05523A98F9500F5335D /* GameColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameColors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 				23BAB04F23A9840300F5335D /* GridModel.swift */,
 				23BAB05123A9842400F5335D /* Square.swift */,
 				23BAB05323A9845600F5335D /* SquareCollectionViewCell.swift */,
+				23BAB05523A98F9500F5335D /* GameColors.swift */,
 				233A92A7239D62680046550C /* Main.storyboard */,
 				233A92AC239D62680046550C /* LaunchScreen.storyboard */,
 				233A92AA239D62680046550C /* Assets.xcassets */,
@@ -273,6 +276,7 @@
 			files = (
 				23BAB05223A9842400F5335D /* Square.swift in Sources */,
 				23BAB05023A9840300F5335D /* GridModel.swift in Sources */,
+				23BAB05623A98F9500F5335D /* GameColors.swift in Sources */,
 				233A92A6239D62680046550C /* ViewController.swift in Sources */,
 				23BAB05423A9845600F5335D /* SquareCollectionViewCell.swift in Sources */,
 				2326793E23A80FED001D58AD /* GameViewController.swift in Sources */,

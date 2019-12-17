@@ -2,6 +2,7 @@
 
 Casual gaming app for iOS mimicking the puzzle of a 7x7 grid.
 
-## View
+## Screenshots
 
-![](ref_images/start_screen.png)
+![](ref_images/initView.png)
+![](ref_images/gameView.png)

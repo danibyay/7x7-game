@@ -9,7 +9,7 @@
 import Foundation
 
 class Square {
-    var color:UInt32 = 0
+    var colorCode:UInt32 = 0
     // make an enum type for the different (5) possible colors or patterns
     // in the future.
 }
