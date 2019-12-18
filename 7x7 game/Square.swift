@@ -10,6 +10,16 @@ import Foundation
 
 class Square {
     var colorCode:UInt32 = 0
+    var isSelected:Bool = false
+    
+    func isEmpty() -> Bool {
+        return self.colorCode == 0
+    }
+    
+    func setEmpty() {
+        colorCode = 0
+    }
+    
     // make an enum type for the different (5) possible colors or patterns
     // in the future.
 }

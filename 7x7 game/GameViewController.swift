@@ -47,36 +47,53 @@ class GameViewController: UIViewController, UICollectionViewDelegate, UICollecti
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell =
-            collectionView.dequeueReusableCell(withReuseIdentifier: "Square", for: indexPath)
-        setCellColor(cell: cell, index: indexPath)
+            collectionView.dequeueReusableCell(withReuseIdentifier: "Square", for: indexPath) as! SquareCollectionViewCell
+        let square = squaresArray[indexPath.item]
+        cell.paint(square)
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         didSelectItemAt indexPath: IndexPath) {
-    }
-    
-    // MARK: - Other
-    
-    func setCellColor(cell: UICollectionViewCell, index: IndexPath) {
-        switch squaresArray[index.item].colorCode {
-            case 0:
-                cell.contentView.backgroundColor = UIColor.gameNoColor()
-            case 1:
-                cell.contentView.backgroundColor = UIColor.gameColor1()
-            case 2:
-                cell.contentView.backgroundColor = UIColor.gameColor2()
-            case 3:
-                cell.contentView.backgroundColor = UIColor.gameColor3()
-            case 4:
-                cell.contentView.backgroundColor = UIColor.gameColor4()
-            case 5:
-                cell.contentView.backgroundColor = UIColor.gameColor5()
-            default:
-                cell.contentView.backgroundColor = UIColor.gameNoColor()
+        // highlight the square so the user know it's selected.
+        // change a bool attribute of the Square model (toggle)
+        // first, clean all other squares being selected, except for the last touched.
+        // then, change the one that was selected
         
+        let lastIndex = model.getLastSelectedSquareIndex()
+        let currSquare = squaresArray[indexPath.item]
+        
+        if lastIndex < 50 {
+            squaresArray[lastIndex].isSelected = false
         }
+        if indexPath.item != lastIndex {
+            if !currSquare.isEmpty() {
+                currSquare.isSelected = true
+            } else if lastIndex < 50 && !squaresArray[lastIndex].isEmpty() &&
+               currSquare.isEmpty() {
+                    currSquare.colorCode = squaresArray[lastIndex].colorCode
+                    squaresArray[lastIndex].setEmpty()
+                    // Re-paint
+                // TODO: why does this take so long to be visible/updated?
+                    let currCell = collectionView.cellForItem(at: indexPath) as! SquareCollectionViewCell
+                    currCell.paint(currSquare)
+                    // let prevCell = .... what is the indexpath if I have the array index?
+                    // prevCell.paint(prevSquare)
+            }
+        }
+        
+        // TODO: if selected -- cell.highlight()
+        
+        // no estoy recoloreando la vieja, entonces no se movio, solo se copio.
+        
+        // guardar el ultimo
+        model.setLastSelectedSquareIndex(index: indexPath.item)
+        print("last is: \(lastIndex) . Last will be: \(indexPath.item)")
+        
+        
     }
+    
+    
     
 
 

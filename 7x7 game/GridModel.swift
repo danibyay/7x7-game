@@ -9,11 +9,24 @@
 import Foundation
 
 class GridModel {
+    // TODO: find a better place for these constants
     let INITIAL_SQUARES = 12
+    let MAX_SQUARES = 49
+    
+    var lastSelectedSquareIndex = 50 // (max squares + 1) (none)
+    
+    func getLastSelectedSquareIndex() -> Int {
+        return lastSelectedSquareIndex
+    }
+    
+    func setLastSelectedSquareIndex(index:Int) {
+        lastSelectedSquareIndex = index
+    }
+    
     func getSquares() -> [Square] {
         var generatedSquaresArray = [Square]()
         var countUsedSquares = 0
-        for _ in 1...49 {
+        for _ in 1...MAX_SQUARES {
             // TODO: there should be a limit of how many are colored and how many are blank
             // choose the color of the squares
             let currSquare = Square()
@@ -23,11 +36,8 @@ class GridModel {
                 currSquare.colorCode = randomNumber
                 countUsedSquares += 1
             }
-            print("used squares: \(countUsedSquares), color used: \(currSquare.colorCode)")
             generatedSquaresArray.append(currSquare)
-
-    }
-        
+        }
         // Return the array
         return generatedSquaresArray
     }
