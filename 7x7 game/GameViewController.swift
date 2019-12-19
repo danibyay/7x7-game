@@ -77,6 +77,7 @@ class GameViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 // TODO: why does this take so long to be visible/updated?
                     let currCell = collectionView.cellForItem(at: indexPath) as! SquareCollectionViewCell
                     currCell.paint(currSquare)
+                    //collectionView.reloadData()
                     // let prevCell = .... what is the indexpath if I have the array index?
                     // prevCell.paint(prevSquare)
             }

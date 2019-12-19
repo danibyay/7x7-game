@@ -28,7 +28,20 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start a new game" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HqZ-zV-2ky">
-                                <rect key="frame" x="120" y="436" width="134.5" height="20.5"/>
+                                <rect key="frame" x="120" y="437" width="134.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="slL-fq-lmu">
+                                <rect key="frame" x="135" y="150" width="104" height="103"/>
+                                <state key="normal" image="settings_button"/>
+                                <connections>
+                                    <segue destination="g8m-BN-UQG" kind="show" id="FwN-qR-ebe"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ba0-DE-cjW">
+                                <rect key="frame" x="156" y="273" width="63.5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -36,10 +49,14 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="slL-fq-lmu" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="5x9-Lm-whD"/>
+                            <constraint firstItem="rtz-Th-lSC" firstAttribute="top" secondItem="Ba0-DE-cjW" secondAttribute="bottom" constant="20" id="86e-vf-j9b"/>
                             <constraint firstItem="rtz-Th-lSC" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="GGX-hb-hBM"/>
-                            <constraint firstItem="HqZ-zV-2ky" firstAttribute="top" secondItem="rtz-Th-lSC" secondAttribute="bottom" constant="19" id="UWA-gb-mWr"/>
+                            <constraint firstItem="HqZ-zV-2ky" firstAttribute="top" secondItem="rtz-Th-lSC" secondAttribute="bottom" constant="20" id="UWA-gb-mWr"/>
                             <constraint firstItem="HqZ-zV-2ky" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="glc-aQ-OhZ"/>
                             <constraint firstItem="rtz-Th-lSC" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="k7k-Qq-xEx"/>
+                            <constraint firstItem="Ba0-DE-cjW" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="sMd-Ps-RVS"/>
+                            <constraint firstItem="Ba0-DE-cjW" firstAttribute="top" secondItem="slL-fq-lmu" secondAttribute="bottom" constant="20" id="tNw-40-YLo"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -147,6 +164,21 @@
             </objects>
             <point key="canvasLocation" x="1201" y="134"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="psB-uU-rhP">
+            <objects>
+                <viewController id="g8m-BN-UQG" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Zvm-EI-2YZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.91226788110000001" green="0.4344662118" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="cEp-vV-qfE"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d52-ST-zz6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1201" y="-593"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="PVZ-F0-ZJM">
             <objects>
@@ -167,6 +199,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="settings_button" width="104" height="103"/>
         <image name="start_button" width="104" height="103"/>
     </resources>
 </document>
