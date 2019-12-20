@@ -32,4 +32,15 @@ class SquareCollectionViewCell: UICollectionViewCell {
     }
     
     // method to highlight that the square is selected
+    func select() {
+        UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveEaseIn, animations: {
+            self.contentView.alpha = 0.5
+        }, completion: nil)
+    }
+    
+    func deselect() {
+        UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveEaseIn, animations: {
+            self.contentView.alpha = 1.0
+        }, completion: nil)
+    }
 }

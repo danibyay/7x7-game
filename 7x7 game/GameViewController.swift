@@ -56,51 +56,45 @@ class GameViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     func collectionView(_ collectionView: UICollectionView,
                         didSelectItemAt indexPath: IndexPath) {
-        // highlight the square so the user know it's selected.
-        // change a bool attribute of the Square model (toggle)
-        // first, clean all other squares being selected, except for the last touched.
-        // then, change the one that was selected
         
         let currSquare = squaresArray[indexPath.item]
+        let currCell = collectionView.cellForItem(at: indexPath) as! SquareCollectionViewCell
+        var successfulMove = false
+        
+        // if the selected square is not empty, it can be highlighted.
+        if !currSquare.isEmpty() {
+            currSquare.isSelected = true
+            currCell.select()
+        }
         
         if lastSelectedSquareIndex != nil {
+            let prevCell = collectionView.cellForItem(at: lastSelectedSquareIndex!) as! SquareCollectionViewCell
             // stop highlighting the previously selected square (in the model)
             squaresArray[lastSelectedSquareIndex!.item].isSelected = false
+            prevCell.deselect()
             
             // if the currently selected square is different fron the previous one
             if indexPath.item != lastSelectedSquareIndex!.item {
-                // if it's not empty, a new selection was made, just highlight.
-                if !currSquare.isEmpty() {
-                    currSquare.isSelected = true
-                }
                 // if it is empty, it's a possible next place for the previous square
-                else if !squaresArray[lastSelectedSquareIndex!.item].isEmpty() && currSquare.isEmpty() {
+                // TODO: verify that the path to the next square is valid
+                if !squaresArray[lastSelectedSquareIndex!.item].isEmpty() && currSquare.isEmpty() {
+                    // "Move" the square by passing the color to the next position.
                     currSquare.colorCode = squaresArray[lastSelectedSquareIndex!.item].colorCode
                     squaresArray[lastSelectedSquareIndex!.item].setEmpty()
-                    // Re-paint
-                    let currCell = collectionView.cellForItem(at: indexPath) as! SquareCollectionViewCell
+                    // Re-paint both squares involved
                     currCell.paint(currSquare)
-                    let prevCell = collectionView.cellForItem(at: lastSelectedSquareIndex!) as! SquareCollectionViewCell
                     prevCell.paint(squaresArray[lastSelectedSquareIndex!.item])
                     collectionView.reloadItems(at: [indexPath, lastSelectedSquareIndex!])
-                    //collectionView.reloadData()
-                    // let prevCell = .... what is the indexpath if I have the array index?
-                    // prevCell.paint(prevSquare)
+                    successfulMove = true
                 }
             }
         }
         
-        
-        lastSelectedSquareIndex = indexPath
-        
-        
-        // TODO: if selected -- cell.highlight()
-        
-        // no estoy recoloreando la vieja, entonces no se movio, solo se copio.
-        
-        // guardar el ultimo
-        // print("last is: \(lastIndex) . Last will be: \(indexPath.item)")
-        
+        if !successfulMove {
+           lastSelectedSquareIndex = indexPath
+        } else {
+            lastSelectedSquareIndex = nil
+        }
         
     }
     
