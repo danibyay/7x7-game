@@ -84,6 +84,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2307AFAF23AC0BD60031F90B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				23BAB05123A9842400F5335D /* Square.swift */,
+				23BAB04F23A9840300F5335D /* GridModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		233A9297239D62680046550C = {
 			isa = PBXGroup;
 			children = (
@@ -110,8 +119,7 @@
 				233A92A3239D62680046550C /* AppDelegate.swift */,
 				233A92A5239D62680046550C /* ViewController.swift */,
 				2326793D23A80FED001D58AD /* GameViewController.swift */,
-				23BAB04F23A9840300F5335D /* GridModel.swift */,
-				23BAB05123A9842400F5335D /* Square.swift */,
+				2307AFAF23AC0BD60031F90B /* Model */,
 				23BAB05323A9845600F5335D /* SquareCollectionViewCell.swift */,
 				23BAB05523A98F9500F5335D /* GameColors.swift */,
 				233A92A7239D62680046550C /* Main.storyboard */,

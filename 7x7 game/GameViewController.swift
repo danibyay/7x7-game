@@ -19,6 +19,7 @@ class GameViewController: UIViewController, UICollectionViewDelegate, UICollecti
     var score = 0;
     var model = GridModel()
     var squaresArray = [Square]()
+    var lastSelectedSquareIndex:IndexPath?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,36 +61,45 @@ class GameViewController: UIViewController, UICollectionViewDelegate, UICollecti
         // first, clean all other squares being selected, except for the last touched.
         // then, change the one that was selected
         
-        let lastIndex = model.getLastSelectedSquareIndex()
         let currSquare = squaresArray[indexPath.item]
         
-        if lastIndex < 50 {
-            squaresArray[lastIndex].isSelected = false
-        }
-        if indexPath.item != lastIndex {
-            if !currSquare.isEmpty() {
-                currSquare.isSelected = true
-            } else if lastIndex < 50 && !squaresArray[lastIndex].isEmpty() &&
-               currSquare.isEmpty() {
-                    currSquare.colorCode = squaresArray[lastIndex].colorCode
-                    squaresArray[lastIndex].setEmpty()
+        if lastSelectedSquareIndex != nil {
+            // stop highlighting the previously selected square (in the model)
+            squaresArray[lastSelectedSquareIndex!.item].isSelected = false
+            
+            // if the currently selected square is different fron the previous one
+            if indexPath.item != lastSelectedSquareIndex!.item {
+                // if it's not empty, a new selection was made, just highlight.
+                if !currSquare.isEmpty() {
+                    currSquare.isSelected = true
+                }
+                // if it is empty, it's a possible next place for the previous square
+                else if !squaresArray[lastSelectedSquareIndex!.item].isEmpty() && currSquare.isEmpty() {
+                    currSquare.colorCode = squaresArray[lastSelectedSquareIndex!.item].colorCode
+                    squaresArray[lastSelectedSquareIndex!.item].setEmpty()
                     // Re-paint
-                // TODO: why does this take so long to be visible/updated?
                     let currCell = collectionView.cellForItem(at: indexPath) as! SquareCollectionViewCell
                     currCell.paint(currSquare)
+                    let prevCell = collectionView.cellForItem(at: lastSelectedSquareIndex!) as! SquareCollectionViewCell
+                    prevCell.paint(squaresArray[lastSelectedSquareIndex!.item])
+                    collectionView.reloadItems(at: [indexPath, lastSelectedSquareIndex!])
                     //collectionView.reloadData()
                     // let prevCell = .... what is the indexpath if I have the array index?
                     // prevCell.paint(prevSquare)
+                }
             }
         }
+        
+        
+        lastSelectedSquareIndex = indexPath
+        
         
         // TODO: if selected -- cell.highlight()
         
         // no estoy recoloreando la vieja, entonces no se movio, solo se copio.
         
         // guardar el ultimo
-        model.setLastSelectedSquareIndex(index: indexPath.item)
-        print("last is: \(lastIndex) . Last will be: \(indexPath.item)")
+        // print("last is: \(lastIndex) . Last will be: \(indexPath.item)")
         
         
     }

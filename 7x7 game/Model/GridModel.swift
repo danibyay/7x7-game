@@ -13,16 +13,6 @@ class GridModel {
     let INITIAL_SQUARES = 12
     let MAX_SQUARES = 49
     
-    var lastSelectedSquareIndex = 50 // (max squares + 1) (none)
-    
-    func getLastSelectedSquareIndex() -> Int {
-        return lastSelectedSquareIndex
-    }
-    
-    func setLastSelectedSquareIndex(index:Int) {
-        lastSelectedSquareIndex = index
-    }
-    
     func getSquares() -> [Square] {
         var generatedSquaresArray = [Square]()
         var countUsedSquares = 0
