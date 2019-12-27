@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GameViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class GameViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     @IBOutlet weak var UpperStackView: UIStackView!
     @IBOutlet weak var MainView: UIView!
@@ -98,8 +98,11 @@ class GameViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
     }
     
-    
-    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        //let itemSize = (collectionView.frame.width - (collectionView.contentInset.left + collectionView.contentInset.right + 10)) / 10
+        let itemSize = (collectionView.frame.width) / 9
+        return CGSize(width: itemSize, height: itemSize)
+    }
 
 
 }
